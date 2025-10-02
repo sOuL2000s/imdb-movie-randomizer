@@ -3,451 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IMDb Top English Movies Randomizer</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f0f2f5;
-            color: #333;
-            line-height: 1.6;
-        }
-        .container {
-            max-width: 900px;
-            margin: 30px auto;
-            background-color: #ffffff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            color: #e4b724; /* IMDb yellow */
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 2.2em;
-            font-weight: bold;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
-        }
-        .controls {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 40px;
-            padding: 15px;
-            background-color: #f8f8f8;
-            border-radius: 8px;
-            border: 1px solid #eee;
-        }
-        .controls label {
-            font-weight: bold;
-            color: #555;
-            font-size: 1.1em;
-        }
-        .controls input[type="number"] {
-            padding: 10px 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            width: 70px;
-            font-size: 1em;
-            text-align: center;
-            -moz-appearance: textfield; /* Firefox */
-        }
-        .controls input[type="number"]::-webkit-outer-spin-button,
-        .controls input[type="number"]::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
-        .controls button {
-            background-color: #e4b724;
-            color: #333;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1.1em;
-            font-weight: bold;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        .controls button:hover {
-            background-color: #d1a81f;
-            transform: translateY(-2px);
-        }
-        .controls button:active {
-            transform: translateY(0);
-        }
-        #movieList {
-            list-style: none;
-            padding: 0;
-            margin-top: 0;
-        }
-        .movie-item {
-            background-color: #ffffff;
-            border: 1px solid #e0e0e0;
-            margin-bottom: 12px;
-            padding: 18px 25px;
-            border-radius: 8px;
-            display: flex;
-            align-items: flex-start;
-            gap: 20px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            transition: transform 0.2s ease-in-out;
-        }
-        .movie-item:hover {
-            transform: translateY(-3px);
-        }
-        .movie-item .rank {
-            font-size: 1.8em;
-            font-weight: bold;
-            color: #e4b724;
-            min-width: 40px;
-            text-align: right;
-        }
-        .movie-item .details {
-            flex-grow: 1;
-        }
-        .movie-item h3 {
-            margin: 0 0 8px 0;
-            color: #222;
-            font-size: 1.3em;
-            font-weight: 600;
-        }
-        .movie-item p {
-            margin: 0;
-            font-size: 0.95em;
-            color: #666;
-        }
-    </style>
+    <title>Movie & TV Show Randomizer</title>
+    <link rel="stylesheet" href="shared.css">
 </head>
 <body>
-    <div class="container">
-        <h1>IMDb Top English Movies Randomizer</h1>
-        <div class="controls">
-            <label for="numMovies">Number of random movies:</label>
-            <input type="number" id="numMovies" value="5" min="1" max="198">
-            <button id="generateBtn">Generate Random Movies</button>
-        </div>
-        <ul id="movieList">
-            <!-- Random movies will be displayed here -->
+    <nav>
+        <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="english_movies.html">English Movies</a></li>
+            <li><a href="top250_movies.html">IMDb Top 250 Movies</a></li>
+            <li><a href="greatest_movies.html">Greatest Movies</a></li>
+            <li><a href="inspirational_movies.html">Inspirational Movies</a></li>
+            <li><a href="top250_tvshows.html">IMDb Top 250 TV Shows</a></li>
+            <li><a href="greatest_directors.html">Greatest Directors</a></li>
+            <li><a href="hollywood_directors.html">Hollywood Directors</a></li>
+            <li><a href="greatest_actors.html">Greatest Actors</a></li>
         </ul>
+    </nav>
+    <div class="container">
+        <header class="hero-section">
+            <h1>Discover Your Next Watch!</h1>
+            <p class="tagline">Tired of endless scrolling? Let our randomizer help you find your next favorite movie or TV show from various curated lists!</p>
+            <div class="cta-buttons">
+                <a href="top250_movies.html" class="cta-button primary">Explore Top Movies</a>
+                <a href="top250_tvshows.html" class="cta-button secondary">Discover Top TV Shows</a>
+            </div>
+        </header>
+
+        <section class="category-grid">
+            <h2>Explore Our Curated Collections</h2>
+            <div class="grid-items">
+                <a href="english_movies.html" class="category-card">
+                    <h3>English Movies</h3>
+                    <p>A hand-picked selection of highly-rated English-language films.</p>
+                </a>
+                <a href="top250_movies.html" class="category-card">
+                    <h3>IMDb Top 250 Movies</h3>
+                    <p>Dive into the highest-rated movies according to IMDb users.</p>
+                </a>
+                <a href="greatest_movies.html" class="category-card">
+                    <h3>Greatest Movies</h3>
+                   <p>Critically acclaimed films that stand the test of time.</p>
+                </a>
+                <a href="inspirational_movies.html" class="category-card">
+                    <h3>Inspirational Movies</h3>
+                    <p>Find films that will uplift, motivate, and move you.</p>
+               </a>
+                <a href="top250_tvshows.html" class="category-card">
+                    <h3>IMDb Top 250 TV Shows</h3>
+                    <p>Bingeworthy series, highly rated by a global audience.</p>
+                </a>
+               <a href="greatest_directors.html" class="category-card">
+                    <h3>Greatest Directors</h3>
+                    <p>Explore the filmography of legendary filmmakers.</p>
+                </a>
+               <a href="hollywood_directors.html" class="category-card">
+                    <h3>Hollywood Directors</h3>
+                    <p>Meet the iconic names shaping mainstream cinema.</p>
+                </a>
+                <a href="greatest_actors.html" class="category-card">
+                   <h3>Greatest Actors</h3>
+                    <p>Discover performances from the screen's most legendary talents.</p>
+                </a>
+            </div>
+        </section>
     </div>
 
     <script>
-        const allMovies = [
-            { title: "The Shawshank Redemption", year: 1994, rating: 9.3, votes: "3.1M" },
-            { title: "The Godfather", year: 1972, rating: 9.2, votes: "2.2M" },
-            { title: "The Dark Knight", year: 2008, rating: 9.1, votes: "3.1M" },
-            { title: "The Godfather Part II", year: 1974, rating: 9.0, votes: "1.5M" },
-            { title: "12 Angry Men", year: 1957, rating: 9.0, votes: "950K" },
-            { title: "The Lord of the Rings: The Return of the King", year: 2003, rating: 9.0, votes: "2.1M" },
-            { title: "Schindler's List", year: 1993, rating: 9.0, votes: "1.5M" },
-            { title: "The Lord of the Rings: The Fellowship of the Ring", year: 2001, rating: 8.9, votes: "2.1M" },
-            { title: "Pulp Fiction", year: 1994, rating: 8.8, votes: "2.4M" },
-            { title: "The Good, the Bad and the Ugly", year: 1966, rating: 8.8, votes: "869K" },
-            { title: "The Lord of the Rings: The Two Towers", year: 2002, rating: 8.8, votes: "1.9M" },
-            { title: "Forrest Gump", year: 1994, rating: 8.8, votes: "2.4M" },
-            { title: "Fight Club", year: 1999, rating: 8.8, votes: "2.5M" },
-            { title: "Inception", year: 2010, rating: 8.8, votes: "2.7M" },
-            { title: "Star Wars: Episode V - The Empire Strikes Back", year: 1980, rating: 8.7, votes: "1.5M" },
-            { title: "The Matrix", year: 1999, rating: 8.7, votes: "2.2M" },
-            { title: "Goodfellas", year: 1990, rating: 8.7, votes: "1.4M" },
-            { title: "Interstellar", year: 2014, rating: 8.7, votes: "2.4M" },
-            { title: "One Flew Over the Cuckoo's Nest", year: 1975, rating: 8.7, votes: "1.1M" },
-            { title: "It's a Wonderful Life", year: 1946, rating: 8.6, votes: "535K" },
-            { title: "Se7en", year: 1995, rating: 8.6, votes: "2M" },
-            { title: "The Silence of the Lambs", year: 1991, rating: 8.6, votes: "1.7M" },
-            { title: "Saving Private Ryan", year: 1998, rating: 8.6, votes: "1.6M" },
-            { title: "The Green Mile", year: 1999, rating: 8.6, votes: "1.5M" },
-            { title: "Terminator 2: Judgment Day", year: 1991, rating: 8.6, votes: "1.3M" },
-            { title: "Star Wars: Episode IV - A New Hope", year: 1977, rating: 8.6, votes: "1.5M" },
-            { title: "Back to the Future", year: 1985, rating: 8.5, votes: "1.4M" },
-            { title: "The Pianist", year: 2002, rating: 8.5, votes: "985K" },
-            { title: "Gladiator", year: 2000, rating: 8.5, votes: "1.8M" },
-            { title: "Psycho", year: 1960, rating: 8.5, votes: "764K" },
-            { title: "The Lion King", year: 1994, rating: 8.5, votes: "1.2M" },
-            { title: "Whiplash", year: 2014, rating: 8.5, votes: "1.1M" },
-            { title: "The Departed", year: 2006, rating: 8.5, votes: "1.5M" },
-            { title: "Spider-Man: Across the Spider-Verse", year: 2023, rating: 8.5, votes: "482K" },
-            { title: "The Prestige", year: 2006, rating: 8.5, votes: "1.5M" },
-            { title: "American History X", year: 1998, rating: 8.5, votes: "1.2M" },
-            { title: "Léon: The Professional", year: 1994, rating: 8.5, votes: "1.3M" },
-            { title: "Casablanca", year: 1942, rating: 8.5, votes: "641K" },
-            { title: "Modern Times", year: 1936, rating: 8.5, votes: "277K" },
-            { title: "The Usual Suspects", year: 1995, rating: 8.5, votes: "1.2M" },
-            { title: "Rear Window", year: 1954, rating: 8.5, votes: "555K" },
-            { title: "Alien", year: 1979, rating: 8.5, votes: "1M" },
-            { title: "Django Unchained", year: 2012, rating: 8.5, votes: "1.8M" },
-            { title: "Apocalypse Now", year: 1979, rating: 8.4, votes: "753K" },
-            { title: "WALL·E", year: 2008, rating: 8.4, votes: "1.3M" },
-            { title: "Dune: Part Two", year: 2024, rating: 8.5, votes: "669K" },
-            { title: "One Battle After Another", year: 2025, rating: 8.5, votes: "41K" },
-            { title: "Memento", year: 2000, rating: 8.4, votes: "1.4M" },
-            { title: "Witness for the Prosecution", year: 1957, rating: 8.4, votes: "154K" },
-            { title: "Sunset Boulevard", year: 1950, rating: 8.4, votes: "253K" },
-            { title: "Raiders of the Lost Ark", year: 1981, rating: 8.4, votes: "1.1M" },
-            { title: "Paths of Glory", year: 1957, rating: 8.4, votes: "231K" },
-            { title: "The Great Dictator", year: 1940, rating: 8.4, votes: "252K" },
-            { title: "Avengers: Infinity War", year: 2018, rating: 8.4, votes: "1.3M" },
-            { title: "Spider-Man: Into the Spider-Verse", year: 2018, rating: 8.4, votes: "753K" },
-            { title: "The Shining", year: 1980, rating: 8.4, votes: "1.2M" },
-            { title: "Aliens", year: 1986, rating: 8.4, votes: "821K" },
-            { title: "Inglourious Basterds", year: 2009, rating: 8.4, votes: "1.7M" },
-            { title: "Amadeus", year: 1984, rating: 8.4, votes: "455K" },
-            { title: "Coco", year: 2017, rating: 8.4, votes: "670K" },
-            { title: "The Dark Knight Rises", year: 2012, rating: 8.4, votes: "1.9M" },
-            { title: "Avengers: Endgame", year: 2019, rating: 8.4, votes: "1.4M" },
-            { title: "Good Will Hunting", year: 1997, rating: 8.3, votes: "1.2M" },
-            { title: "Toy Story", year: 1995, rating: 8.3, votes: "1.1M" },
-            { title: "Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb", year: 1964, rating: 8.3, votes: "544K" },
-            { title: "Braveheart", year: 1995, rating: 8.3, votes: "1.1M" },
-            { title: "American Beauty", year: 1999, rating: 8.3, votes: "1.3M" },
-            { title: "Singin' in the Rain", year: 1952, rating: 8.3, votes: "276K" },
-            { title: "Once Upon a Time in America", year: 1984, rating: 8.3, votes: "400K" },
-            { title: "Joker", year: 2019, rating: 8.3, votes: "1.6M" },
-            { title: "The Apartment", year: 1960, rating: 8.3, votes: "213K" },
-            { title: "Requiem for a Dream", year: 2000, rating: 8.3, votes: "952K" },
-            { title: "Toy Story 3", year: 2010, rating: 8.3, votes: "946K" },
-            { title: "Double Indemnity", year: 1944, rating: 8.3, votes: "177K" },
-            { title: "Star Wars: Episode VI - Return of the Jedi", year: 1983, rating: 8.3, votes: "1.2M" },
-            { title: "Lawrence of Arabia", year: 1962, rating: 8.3, votes: "334K" },
-            { title: "Eternal Sunshine of the Spotless Mind", year: 2004, rating: 8.3, votes: "1.2M" },
-            { title: "2001: A Space Odyssey", year: 1968, rating: 8.3, votes: "765K" },
-            { title: "North by Northwest", year: 1959, rating: 8.3, votes: "364K" },
-            { title: "Reservoir Dogs", year: 1992, rating: 8.3, votes: "1.1M" },
-            { title: "Judgment at Nuremberg", year: 1961, rating: 8.3, votes: "94K" },
-            { title: "Scarface", year: 1983, rating: 8.3, votes: "987K" },
-            { title: "Heat", year: 1995, rating: 8.3, votes: "775K" },
-            { title: "Hamilton", year: 2020, rating: 8.3, votes: "133K" },
-            { title: "Citizen Kane", year: 1941, rating: 8.2, votes: "487K" },
-            { title: "The Sting", year: 1973, rating: 8.2, votes: "294K" },
-            { title: "To Kill a Mockingbird", year: 1962, rating: 8.3, votes: "347K" },
-            { title: "Vertigo", year: 1958, rating: 8.2, votes: "451K" },
-            { title: "Up", year: 2009, rating: 8.3, votes: "1.2M" },
-            { title: "Full Metal Jacket", year: 1987, rating: 8.2, votes: "834K" },
-            { title: "Indiana Jones and the Last Crusade", year: 1989, rating: 8.2, votes: "849K" },
-            { title: "Die Hard", year: 1988, rating: 8.2, votes: "1M" },
-            { title: "A Clockwork Orange", year: 1971, rating: 8.2, votes: "921K" },
-            { title: "All About Eve", year: 1950, rating: 8.2, votes: "147K" },
-            { title: "1917", year: 2019, rating: 8.2, votes: "745K" },
-            { title: "Snatch", year: 2000, rating: 8.2, votes: "958K" },
-            { title: "L.A. Confidential", year: 1997, rating: 8.2, votes: "648K" },
-            { title: "Oppenheimer", year: 2023, rating: 8.3, votes: "942K" },
-            { title: "For a Few Dollars More", year: 1965, rating: 8.2, votes: "294K" },
-            { title: "Some Like It Hot", year: 1959, rating: 8.2, votes: "299K" },
-            { title: "Green Book", year: 2018, rating: 8.2, votes: "655K" },
-            { title: "The Wolf of Wall Street", year: 2013, rating: 8.2, votes: "1.7M" },
-            { title: "The Father", year: 2020, rating: 8.2, votes: "220K" },
-            { title: "The Truman Show", year: 1998, rating: 8.2, votes: "1.3M" },
-            { title: "Taxi Driver", year: 1976, rating: 8.2, votes: "997K" },
-            { title: "Batman Begins", year: 2005, rating: 8.2, votes: "1.7M" },
-            { title: "Shutter Island", year: 2010, rating: 8.2, votes: "1.6M" },
-            { title: "Jurassic Park", year: 1993, rating: 8.2, votes: "1.1M" },
-            { title: "There Will Be Blood", year: 2007, rating: 8.2, votes: "685K" },
-            { title: "The Treasure of the Sierra Madre", year: 1948, rating: 8.2, votes: "139K" },
-            { title: "Casino", year: 1995, rating: 8.2, votes: "603K" },
-            { title: "The Sixth Sense", year: 1999, rating: 8.2, votes: "1.1M" },
-            { title: "The Thing", year: 1982, rating: 8.2, votes: "509K" },
-            { title: "Top Gun: Maverick", year: 2022, rating: 8.2, votes: "806K" },
-            { title: "No Country for Old Men", year: 2007, rating: 8.2, votes: "1.1M" },
-            { title: "Unforgiven", year: 1992, rating: 8.2, votes: "460K" },
-            { title: "Kill Bill: Vol. 1", year: 2003, rating: 8.2, votes: "1.3M" },
-            { title: "Prisoners", year: 2013, rating: 8.2, votes: "896K" },
-            { title: "A Beautiful Mind", year: 2001, rating: 8.2, votes: "1M" },
-            { title: "The Great Escape", year: 1963, rating: 8.2, votes: "272K" },
-            { title: "The Elephant Man", year: 1980, rating: 8.2, votes: "277K" },
-            { title: "Klaus", year: 2019, rating: 8.2, votes: "220K" },
-            { title: "Dial M for Murder", year: 1954, rating: 8.2, votes: "201K" },
-            { title: "Finding Nemo", year: 2003, rating: 8.2, votes: "1.2M" },
-            { title: "Monty Python and the Holy Grail", year: 1975, rating: 8.2, votes: "594K" },
-            { title: "Gone with the Wind", year: 1939, rating: 8.2, votes: "351K" },
-            { title: "Chinatown", year: 1974, rating: 8.1, votes: "370K" },
-            { title: "The Bridge on the River Kwai", year: 1957, rating: 8.1, votes: "245K" },
-            { title: "Lock, Stock and Two Smoking Barrels", year: 1998, rating: 8.1, votes: "641K" },
-            { title: "The Wild Robot", year: 2024, rating: 8.2, votes: "198K" },
-            { title: "V for Vendetta", year: 2005, rating: 8.1, votes: "1.2M" },
-            { title: "Inside Out", year: 2015, rating: 8.1, votes: "886K" },
-            { title: "Barry Lyndon", year: 1975, rating: 8.1, votes: "198K" },
-            { title: "Three Billboards Outside Ebbing, Missouri", year: 2017, rating: 8.1, votes: "592K" },
-            { title: "Trainspotting", year: 1996, rating: 8.1, votes: "757K" },
-            { title: "Raging Bull", year: 1980, rating: 8.1, votes: "401K" },
-            { title: "Ben-Hur", year: 1959, rating: 8.1, votes: "267K" },
-            { title: "Catch Me If You Can", year: 2002, rating: 8.1, votes: "1.2M" },
-            { title: "Warrior", year: 2011, rating: 8.1, votes: "520K" },
-            { title: "Fargo", year: 1996, rating: 8.1, votes: "766K" },
-            { title: "Harry Potter and the Deathly Hallows: Part 2", year: 2011, rating: 8.1, votes: "1M" },
-            { title: "The Best Years of Our Lives", year: 1946, rating: 8.1, votes: "76K" },
-            { title: "Dead Poets Society", year: 1989, rating: 8.1, votes: "614K" },
-            { title: "Before Sunrise", year: 1995, rating: 8.1, votes: "366K" },
-            { title: "Mr. Smith Goes to Washington", year: 1939, rating: 8.1, votes: "127K" },
-            { title: "Million Dollar Baby", year: 2004, rating: 8.1, votes: "754K" },
-            { title: "In the Name of the Father", year: 1993, rating: 8.1, votes: "199K" },
-            { title: "To Be or Not to Be", year: 1942, rating: 8.1, votes: "48K" },
-            { title: "Gran Torino", year: 2008, rating: 8.1, votes: "848K" },
-            { title: "Hacksaw Ridge", year: 2016, rating: 8.1, votes: "654K" },
-            { title: "Mad Max: Fury Road", year: 2015, rating: 8.1, votes: "1.2M" },
-            { title: "12 Years a Slave", year: 2013, rating: 8.1, votes: "773K" },
-            { title: "Mary and Max", year: 2009, rating: 8.1, votes: "199K" },
-            { title: "The Grand Budapest Hotel", year: 2014, rating: 8.1, votes: "942K" },
-            { title: "Spider-Man: No Way Home", year: 2021, rating: 8.2, votes: "979K" },
-            { title: "Blade Runner", year: 1982, rating: 8.1, votes: "865K" },
-            { title: "Ratatouille", year: 2007, rating: 8.1, votes: "908K" },
-            { title: "How to Train Your Dragon", year: 2010, rating: 8.1, votes: "868K" },
-            { title: "On the Waterfront", year: 1954, rating: 8.1, votes: "175K" },
-            { title: "Gone Girl", year: 2014, rating: 8.1, votes: "1.1M" },
-            { title: "The Red Shoes", year: 1948, rating: 8.1, votes: "42K" },
-            { title: "Jaws", year: 1975, rating: 8.1, votes: "718K" },
-            { title: "Monsters, Inc.", year: 2001, rating: 8.1, votes: "1M" },
-            { title: "Ford v Ferrari", year: 2019, rating: 8.1, votes: "544K" },
-            { title: "The Deer Hunter", year: 1978, rating: 8.1, votes: "380K" },
-            { title: "The Third Man", year: 1949, rating: 8.1, votes: "192K" },
-            { title: "Paper Moon", year: 1973, rating: 8.1, votes: "56K" },
-            { title: "The Grapes of Wrath", year: 1940, rating: 8.1, votes: "107K" },
-            { title: "All Quiet on the Western Front", year: 1930, rating: 8.1, votes: "71K" },
-            { title: "Rocky", year: 1976, rating: 8.1, votes: "672K" },
-            { title: "Logan", year: 2017, rating: 8.1, votes: "905K" },
-            { title: "The Sound of Music", year: 1965, rating: 8.1, votes: "282K" },
-            { title: "Spotlight", year: 2015, rating: 8.1, votes: "525K" },
-            { title: "Before Sunset", year: 2004, rating: 8.1, votes: "307K" },
-            { title: "Hotel Rwanda", year: 2004, rating: 8.1, votes: "387K" },
-            { title: "Pirates of the Caribbean: The Curse of the Black Pearl", year: 2003, rating: 8.1, votes: "1.3M" },
-            { title: "The Terminator", year: 1984, rating: 8.1, votes: "979K" },
-            { title: "Room", year: 2015, rating: 8.1, votes: "473K" },
-            { title: "Hachi: A Dog's Tale", year: 2009, rating: 8.1, votes: "334K" },
-            { title: "The Big Lebowski", year: 1998, rating: 8.1, votes: "901K" },
-            { title: "Platoon", year: 1986, rating: 8.1, votes: "462K" },
-            { title: "The Iron Giant", year: 1999, rating: 8.1, votes: "251K" },
-            { title: "The Man Who Shot Liberty Valance", year: 1962, rating: 8.1, votes: "87K" },
-            { title: "Network", year: 1976, rating: 8.1, votes: "182K" },
-            { title: "The Exorcist", year: 1973, rating: 8.1, votes: "486K" },
-            { title: "It Happened One Night", year: 1934, rating: 8.1, votes: "118K" },
-            { title: "The Wizard of Oz", year: 1939, rating: 8.1, votes: "457K" },
-            { title: "Paris, Texas", year: 1984, rating: 8.1, votes: "135K" },
-            { title: "Rebecca", year: 1940, rating: 8.1, votes: "160K" },
-            { title: "Rush", year: 2013, rating: 8.1, votes: "546K" },
-            { title: "The Incredibles", year: 2004, rating: 8.0, votes: "874K" },
-            { title: "Stand by Me", year: 1986, rating: 8.1, votes: "473K" },
-            { title: "Cool Hand Luke", year: 1967, rating: 8.0, votes: "195K" },
-            { title: "Ace in the Hole", year: 1951, rating: 8.1, votes: "41K" },
-            { title: "Inherit the Wind", year: 1960, rating: 8.1, votes: "35K" },
-            { title: "White Heat", year: 1949, rating: 8.1, votes: "38K" },
-            { title: "Dances with Wolves", year: 1990, rating: 8.0, votes: "304K" },
-            { title: "The Help", year: 2011, rating: 8.1, votes: "520K" },
-            { title: "Scent of a Woman", year: 1992, rating: 8.0, votes: "358K" },
-            { title: "Into the Wild", year: 2007, rating: 8.0, votes: "687K" },
-            { title: "Groundhog Day", year: 1993, rating: 8.0, votes: "726K" },
-            { title: "Aladdin", year: 1992, rating: 8.0, votes: "492K" },
-            { title: "Gandhi", year: 1982, rating: 8.0, votes: "245K" },
-            { title: "Beauty and the Beast", year: 1991, rating: 8.0, votes: "498K" },
-            { title: "Kill Bill: Vol. 2", year: 2004, rating: 8.0, votes: "848K" },
-            { title: "Dog Day Afternoon", year: 1975, rating: 8.0, votes: "286K" },
-            { title: "Roman Holiday", year: 1953, rating: 8.0, votes: "156K" },
-            { title: "Fail Safe", year: 1964, rating: 8.1, votes: "27K" },
-            { title: "Guardians of the Galaxy", year: 2014, rating: 8.0, votes: "1.3M" },
-            { title: "Monty Python's Life of Brian", year: 1979, rating: 8.0, votes: "431K" },
-            { title: "The Princess Bride", year: 1987, rating: 8.0, votes: "474K" },
-            { title: "Lion", year: 2016, rating: 8.0, votes: "262K" },
-            { title: "Song of the Sea", year: 2014, rating: 8.0, votes: "67K" },
-            { title: "Soul", year: 2020, rating: 8.0, votes: "417K" },
-            { title: "JFK", year: 1991, rating: 8.0, votes: "179K" },
-            { title: "Rosemary's Baby", year: 1968, rating: 8.0, votes: "252K" },
-            { title: "Anatomy of a Murder", year: 1959, rating: 8.0, votes: "76K" },
-            { title: "A Christmas Carol", year: 1951, rating: 8.1, votes: "28K" },
-            { title: "A Woman Under the Influence", year: 1974, rating: 8.0, votes: "32K" },
-            { title: "Brief Encounter", year: 1945, rating: 8.0, votes: "47K" },
-            { title: "Slumdog Millionaire", year: 2008, rating: 8.0, votes: "901K" },
-            { title: "The Ox-Bow Incident", year: 1943, rating: 8.0, votes: "26K" },
-            { title: "La La Land", year: 2016, rating: 8.0, votes: "735K" },
-            { title: "Casino Royale", year: 2006, rating: 8.0, votes: "726K" },
-            { title: "The Shop Around the Corner", year: 1940, rating: 8.0, votes: "42K" },
-            { title: "Butch Cassidy and the Sundance Kid", year: 1969, rating: 8.0, votes: "235K" },
-            { title: "What Ever Happened to Baby Jane?", year: 1962, rating: 8.0, votes: "66K" },
-            { title: "The Imitation Game", year: 2014, rating: 8.0, votes: "863K" },
-            { title: "Donnie Darko", year: 2001, rating: 8.0, votes: "894K" },
-            { title: "Secrets & Lies", year: 1996, rating: 8.0, votes: "50K" },
-            { title: "The Martian", year: 2015, rating: 8.0, votes: "982K" },
-            { title: "Black Swan", year: 2010, rating: 8.0, votes: "871K" },
-            { title: "Dune: Part One", year: 2021, rating: 8.0, votes: "980K" },
-            { title: "The Pursuit of Happyness", year: 2006, rating: 8.0, votes: "603K" },
-            { title: "Magnolia", year: 1999, rating: 8.0, votes: "342K" },
-            { title: "The Bourne Ultimatum", year: 2007, rating: 8.0, votes: "676K" },
-            { title: "Rain Man", year: 1988, rating: 8.0, votes: "572K" },
-            { title: "The Avengers", year: 2012, rating: 8.0, votes: "1.5M" },
-            { title: "The King's Speech", year: 2010, rating: 8.0, votes: "726K" },
-            { title: "The Straight Story", year: 1999, rating: 8.0, votes: "106K" },
-            { title: "Kind Hearts and Coronets", year: 1949, rating: 8.0, votes: "41K" },
-            { title: "Zootopia", year: 2016, rating: 8.0, votes: "593K" },
-            { title: "Blade Runner 2049", year: 2017, rating: 8.0, votes: "729K" },
-            { title: "Who's Afraid of Virginia Woolf?", year: 1966, rating: 8.0, votes: "83K" },
-            { title: "Sin City", year: 2005, rating: 8.0, votes: "813K" },
-            { title: "Dogville", year: 2003, rating: 8.0, votes: "166K" },
-            { title: "The Legend of 1900", year: 1998, rating: 8.0, votes: "72K" },
-            { title: "Young Frankenstein", year: 1974, rating: 8.0, votes: "177K" },
-            { title: "Sling Blade", year: 1996, rating: 8.0, votes: "103K" },
-            { title: "Planet of the Apes", year: 1968, rating: 8.0, votes: "207K" }
-        ];
 
-        // Function to shuffle an array (Fisher-Yates algorithm)
-        function shuffleArray(array) {
-            for (let i = array.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]]; // Swap elements
+        document.addEventListener('DOMContentLoaded', () => {
+            const path = window.location.pathname.split('/').pop();
+            const activeLink = document.querySelector(`nav a[href="${path}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
             }
-            return array;
-        }
-
-        // Function to generate and display random movies
-        function generateRandomMovies() {
-            const numMoviesInput = document.getElementById('numMovies');
-            let count = parseInt(numMoviesInput.value, 10);
-
-            // Validate input: ensure count is a number, within bounds
-            if (isNaN(count) || count < 1) {
-                count = 1; // Default to 1 if invalid
-                numMoviesInput.value = 1;
-            } else if (count > allMovies.length) {
-                count = allMovies.length; // Max out at available movies
-                numMoviesInput.value = allMovies.length;
-            }
-
-            // Create a shallow copy of the movies array to shuffle without modifying the original
-            const shuffledMovies = shuffleArray([...allMovies]); 
-            const selectedMovies = shuffledMovies.slice(0, count);
-
-            displayMovies(selectedMovies);
-        }
-
-        // Function to display movies on the page
-        function displayMovies(movies) {
-            const movieListElement = document.getElementById('movieList');
-            movieListElement.innerHTML = ''; // Clear previous results
-
-            if (movies.length === 0) {
-                movieListElement.innerHTML = '<li class="movie-item"><div class="details">No movies to display.</div></li>';
-                return;
-            }
-
-            movies.forEach((movie, index) => {
-                const listItem = document.createElement('li');
-                listItem.classList.add('movie-item');
-                listItem.innerHTML = `
-                    <div class="rank">${index + 1}.</div>
-                    <div class="details">
-                        <h3>${movie.title} (${movie.year})</h3>
-                        <p>Rating: ${movie.rating} (${movie.votes} votes)</p>
-                    </div>
-                `;
-                movieListElement.appendChild(listItem);
-            });
-        }
-
-        // Event Listener for the button
-        document.getElementById('generateBtn').addEventListener('click', generateRandomMovies);
-
-        // Generate some random movies on initial page load
-        generateRandomMovies(); 
+        });
     </script>
+    <script src="data.js"></script> <!-- Link data.js for shuffleArray -->
 </body>
 </html>

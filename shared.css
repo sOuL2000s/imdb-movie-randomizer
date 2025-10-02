@@ -1,0 +1,491 @@
+body {
+    font-family: 'Open Sans', 'Arial', sans-serif; /* Modern, readable font */
+    margin: 0;
+    padding: 0; /* Changed from 20px, container will handle padding */
+    background-color: #f5f7fa; /* Lighter, subtle background */
+    color: #333;
+    line-height: 1.6;
+    display: flex; /* For overall layout */
+    flex-direction: column;
+    min-height: 100vh;
+}
+.container {
+    max-width: 1000px; /* Slightly wider container */
+    margin: 40px auto; /* More vertical spacing */
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px; /* Slightly more rounded corners */
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.08); /* More prominent shadow */
+    flex-grow: 1; /* Allow container to grow in flex layout */
+}
+h1 {
+    color: #e4b724; /* IMDb yellow */
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5em; /* Slightly larger */
+    font-weight: 700; /* Bolder */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+h2 { /* New style for subheadings */
+    color: #333;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 25px;
+    font-size: 2em;
+    font-weight: 600;
+}
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px; /* Standard spacing */
+    padding: 20px; /* More padding */
+    background-color: #fdfdfd; /* Lighter background */
+    border-radius: 10px; /* More rounded */
+    border: 1px solid #e9e9e9; /* Lighter border */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04); /* Subtle shadow */
+}
+.controls label {
+    font-weight: 600; /* Bolder */
+    color: #444;
+    font-size: 1.1em;
+}
+.controls input[type="number"] {
+    padding: 10px 15px;
+    border: 1px solid #dcdcdc;
+    border-radius: 6px; /* Slightly more rounded */
+    width: 80px; /* Slightly wider input */
+    font-size: 1.05em;
+    text-align: center;
+    -moz-appearance: textfield; /* Keep for Firefox */
+    transition: border-color 0.3s ease; /* Smooth border transition */
+}
+.controls input[type="number"]:focus {
+    border-color: #e4b724; /* Highlight on focus */
+    outline: none;
+}
+.controls input[type="number"]::-webkit-outer-spin-button,
+.controls input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.controls button {
+    background-color: #e4b724;
+    color: #222; /* Darker text for better contrast */
+    border: none;
+    padding: 14px 30px; /* More padding for larger touch target */
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.15em; /* Slightly larger font */
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(228, 183, 36, 0.3); /* Yellowish shadow */
+}
+.controls button:hover {
+    background-color: #d1a81f;
+    transform: translateY(-3px); /* More pronounced lift */
+    box-shadow: 0 6px 20px rgba(228, 183, 36, 0.4);
+}
+.controls button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(228, 183, 36, 0.2);
+}
+
+/* Item List Styles (for randomizer pages) */
+#itemList {
+    list-style: none;
+    padding: 0;
+    margin-top: 0;
+}
+.item-item {
+    background-color: #ffffff;
+    border: 1px solid #e8e8e8; /* Lighter border */
+    margin-bottom: 15px; /* More spacing */
+    padding: 20px 30px; /* More padding */
+    border-radius: 10px; /* Slightly more rounded */
+    display: flex;
+    align-items: flex-start;
+    gap: 25px; /* More gap */
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06); /* Subtle shadow */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Add shadow transition */
+}
+.item-item:hover {
+    transform: translateY(-5px); /* More pronounced lift */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* More prominent shadow on hover */
+}
+.item-item .rank {
+    font-size: 2em; /* Larger rank number */
+    font-weight: 700; /* Bolder */
+    color: #e4b724;
+    min-width: 50px; /* Wider for better alignment */
+    text-align: right;
+    line-height: 1; /* Adjust line height to prevent clipping */
+}
+.item-item .details {
+    flex-grow: 1;
+}
+.item-item h3 {
+    margin: 0 0 10px 0; /* More spacing below title */
+    color: #222;
+    font-size: 1.4em; /* Larger title */
+    font-weight: 600;
+}
+.item-item p {
+    margin: 0;
+    font-size: 1em; /* Slightly larger paragraph text */
+    color: #555;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: #222;
+    padding: 15px 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    position: relative; /* Needed for absolute positioning of hamburger/mobile menu */
+    display: flex; /* Use flexbox for nav itself */
+    justify-content: space-between; /* Distribute items (brand, hamburger, nav links) */
+    align-items: center; /* Vertically align items */
+    z-index: 100; /* Ensure nav is on top of content */
+}
+
+.nav-brand { /* Style for the brand/logo in the nav */
+    color: #e4b724;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 5px 0;
+    white-space: nowrap; /* Prevent breaking */
+    margin-right: 20px; /* Space between brand and nav items/hamburger */
+}
+
+nav .nav-links { /* Target the ul with its new class */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Desktop: horizontal layout */
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+nav .nav-links li { /* Added for explicit control */
+    margin: 0;
+}
+nav .nav-links a {
+    color: #f0f0f0;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    font-weight: 600;
+    font-size: 1em;
+    letter-spacing: 0.5px;
+    display: block; /* Make clickable area larger */
+}
+nav .nav-links a:hover, nav .nav-links a.active {
+    background-color: #e4b724;
+    color: #222;
+    transform: translateY(-2px);
+}
+
+/* Hamburger menu styles */
+.hamburger {
+    display: none; /* Hidden by default on desktop */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0; /* Adjusted padding to control bar spacing */
+    width: 30px; /* Width of the hamburger icon */
+    height: 24px; /* Height of the hamburger icon */
+    position: relative; /* For bar positioning */
+    z-index: 101; /* Ensure it's above the nav links when menu is open */
+    margin-left: auto; /* Pushes hamburger to the right on desktop if visible */
+}
+
+.hamburger .bar {
+    display: block;
+    width: 100%; /* Bars fill the hamburger width */
+    height: 3px;
+    background-color: #f0f0f0;
+    margin: 5px 0; /* Space between bars */
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hamburger animation to 'X' */
+.hamburger.is-active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.hamburger.is-active .bar:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.is-active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Homepage Specific Styles */
+.homepage-container {
+    padding: 0; /* Remove container padding for full width sections */
+    box-shadow: none; /* No shadow for homepage container */
+    background-color: transparent; /* Transparent background */
+    margin-top: 0; /* Remove top margin */
+}
+
+.hero-section {
+    background: linear-gradient(135deg, #222 0%, #3a3a3a 100%); /* Darker gradient */
+    color: #fff;
+    padding: 80px 20px; /* More padding */
+    text-align: center;
+    border-radius: 12px;
+    margin-bottom: 50px; /* Spacing below hero */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2); /* Stronger shadow */
+}
+.hero-section h1 {
+    font-size: 3.5em; /* Much larger for impact */
+    margin-bottom: 20px;
+    color: #e4b724; /* IMDb yellow for main heading */
+    line-height: 1.2;
+}
+.hero-section .tagline {
+    font-size: 1.3em; /* Larger tagline */
+    max-width: 700px;
+    margin: 0 auto 40px auto; /* Center and add spacing */
+    color: #ccc;
+}
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 25px; /* Space between buttons */
+    flex-wrap: wrap; /* Responsive CTA buttons */
+}
+.cta-button {
+    display: inline-block;
+    padding: 15px 35px; /* Generous padding */
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2em;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.cta-button.primary {
+    background-color: #e4b724;
+    color: #222;
+    box-shadow: 0 5px 20px rgba(228, 183, 36, 0.4);
+}
+.cta-button.primary:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(228, 183, 36, 0.5);
+}
+.cta-button.secondary {
+    background-color: #555;
+    color: #fff;
+    border: 2px solid #777;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+.cta-button.secondary:hover {
+    transform: translateY(-4px);
+    background-color: #666;
+    border-color: #888;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.category-grid {
+    max-width: 900px; /* Constrain grid width */
+    margin: 0 auto 50px auto; /* Center and add spacing */
+    padding: 0 20px; /* Add padding for smaller screens */
+}
+.category-grid h2 {
+    color: #333;
+    margin-top: 50px;
+    font-size: 2.2em;
+}
+.grid-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 25px; /* Space between cards */
+}
+.category-card {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    text-decoration: none;
+    color: #333;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    border: 1px solid #eee; /* Subtle border */
+    display: flex; /* Ensure content is nicely aligned */
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 120px; /* Ensure consistent height */
+}
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border-color: #e4b724; /* Highlight border on hover */
+}
+.category-card h3 {
+    margin: 0 0 10px 0;
+    color: #e4b724; /* Category titles in yellow */
+    font-size: 1.3em;
+    font-weight: 600;
+}
+.category-card p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #666;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        margin: 20px auto;
+        padding: 20px;
+    }
+    h1 {
+        font-size: 2em;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    .hero-section {
+        padding: 60px 20px;
+        margin-bottom: 40px;
+    }
+    .hero-section h1 {
+        font-size: 2.5em;
+    }
+    .hero-section .tagline {
+        font-size: 1.1em;
+        margin-bottom: 30px;
+    }
+    .cta-buttons {
+        flex-direction: column; /* Stack buttons vertically */
+        gap: 15px;
+    }
+    .cta-button {
+        padding: 12px 25px;
+        font-size: 1.1em;
+        width: 80%; /* Make buttons wider */
+        max-width: 300px;
+    }
+    .nav-brand {
+        font-size: 1.2em; /* Smaller brand on mobile */
+        max-width: calc(100% - 70px); /* Adjust max-width to leave space for hamburger */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-right: 0; /* Reset margin from desktop */
+    }
+    nav {
+        flex-wrap: nowrap; /* Prevent brand and hamburger from wrapping */
+        padding: 10px 15px; /* Adjust padding for smaller screens */
+    }
+
+    .hamburger {
+        display: block; /* Show hamburger on mobile */
+        margin-left: auto; /* Push hamburger to the right */
+    }
+
+    nav .nav-links {
+        display: none; /* Hide nav links by default on mobile */
+        flex-direction: column;
+        width: 100%;
+        background-color: #222; /* Same as nav background */
+        position: absolute;
+        top: 100%; /* Position below the nav bar */
+        left: 0;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+        padding: 0; /* Reset padding for the ul itself */
+        z-index: 99; /* Below hamburger, but above content */
+        max-height: 0; /* For height animation */
+        overflow: hidden;
+        transition: max-height 0.3s ease-out; /* Smooth slide-down animation */
+    }
+    
+    nav .nav-links.nav-open { /* Show menu when nav-open class is applied */
+        display: flex;
+        max-height: 500px; /* A value larger than expected menu height for smooth transition */
+        transition: max-height 0.5s ease-in;
+        padding: 15px 0; /* Add padding when open */
+    }
+
+    nav .nav-links li {
+        margin: 0; /* Reset margin from desktop */
+    }
+    nav .nav-links a {
+        padding: 12px 20px; /* Adjust padding for mobile links */
+        text-align: center;
+        border-radius: 0; /* No rounded corners for full-width links */
+        font-size: 1em; /* Keep mobile links readable */
+        transform: none; /* No lift animation on mobile menu links */
+    }
+    nav .nav-links a:hover, nav .nav-links a.active {
+        background-color: #e4b724; /* Keep active/hover styles */
+        color: #222;
+        transform: none; /* No lift animation on mobile menu links */
+    }
+    .controls {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+    .controls input[type="number"] {
+        width: 100px;
+    }
+    .controls button {
+        width: 100%;
+        max-width: 250px;
+        font-size: 1em;
+        padding: 12px 20px;
+    }
+    .item-item {
+        flex-direction: column; /* Stack rank and details vertically */
+        align-items: center;
+        text-align: center;
+        padding: 15px 20px;
+        gap: 10px;
+    }
+    .item-item .rank {
+        font-size: 1.5em;
+        min-width: unset; /* Reset min-width for centering */
+        width: 100%;
+        text-align: center;
+    }
+    .item-item h3 {
+        font-size: 1.2em;
+        margin-bottom: 5px;
+    }
+    .item-item p {
+        font-size: 0.9em;
+    }
+    .category-grid h2 {
+        font-size: 1.8em;
+        margin-top: 30px;
+    }
+    .grid-items {
+        grid-template-columns: 1fr; /* Single column on small screens */
+    }
+    .category-card {
+        padding: 20px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8em;
+    }
+    .hero-section h1 {
+        font-size: 2em;
+    }
+    .hero-section .tagline {
+        font-size: 1em;
+    }
+    .cta-button {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+    nav a {
+        font-size: 0.85em;
+        padding: 6px 10px;
+    }
+}
