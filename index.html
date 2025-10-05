@@ -15,6 +15,10 @@
             <li><a href="greatest_movies.html">Greatest Movies</a></li>
             <li><a href="inspirational_movies.html">Inspirational Movies</a></li>
             <li><a href="top250_tvshows.html">IMDb Top 250 TV Shows</a></li>
+            <li><a href="best_picture_academy.html">Best Picture (Oscars)</a></li>
+            <li><a href="best_original_screenplay.html">Original Screenplay (Oscars)</a></li>
+            <li><a href="best_adapted_screenplay.html">Adapted Screenplay (Oscars)</a></li>
+            <li><a href="best_director_academy.html">Best Director (Oscars)</a></li>
             <li><a href="greatest_directors.html">Greatest Directors</a></li>
             <li><a href="hollywood_directors.html">Hollywood Directors</a></li>
             <li><a href="greatest_actors.html">Greatest Actors</a></li>
@@ -53,6 +57,22 @@
                     <h3>IMDb Top 250 TV Shows</h3>
                     <p>Bingeworthy series, highly rated by a global audience.</p>
                 </a>
+                <a href="best_picture_academy.html" class="category-card">
+                    <h3>Best Picture (Oscars)</h3>
+                    <p>Explore the ultimate winners of the Academy's top honor.</p>
+                </a>
+                <a href="best_original_screenplay.html" class="category-card">
+                    <h3>Original Screenplay (Oscars)</h3>
+                    <p>Discover award-winning narratives conceived from scratch.</p>
+                </a>
+                <a href="best_adapted_screenplay.html" class="category-card">
+                    <h3>Adapted Screenplay (Oscars)</h3>
+                    <p>See the best transformations of books and plays to screen.</p>
+                </a>
+                <a href="best_director_academy.html" class="category-card">
+                    <h3>Best Director (Oscars)</h3>
+                    <p>Celebrate the visionary filmmakers who shaped cinematic masterpieces.</p>
+                </a>
                <a href="greatest_directors.html" class="category-card">
                     <h3>Greatest Directors</h3>
                     <p>Explore the filmography of legendary filmmakers.</p>
@@ -70,7 +90,6 @@
     </div>
 
     <script>
-
         document.addEventListener('DOMContentLoaded', () => {
             const path = window.location.pathname.split('/').pop();
             const activeLink = document.querySelector(`nav a[href="${path}"]`);

@@ -3,36 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IMDb Top 250 TV Shows Randomizer</title>
+    <title>Academy Award for Best Adapted Screenplay Winners Randomizer</title>
     <link rel="stylesheet" href="shared.css">
 </head>
 <body>
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="english_movies.html" id="nav-english-movies">English Movies</a></li>
-            <li><a href="top250_movies.html" id="nav-top250-movies">IMDb Top 250 Movies</a></li>
-            <li><a href="greatest_movies.html" id="nav-greatest-movies">Greatest Movies</a></li>
-            <li><a href="inspirational_movies.html" id="nav-inspirational-movies">Inspirational Movies</a></li>
-            <li><a href="top250_tvshows.html" id="nav-top250-tvshows">IMDb Top 250 TV Shows</a></li>
-            <li><a href="best_picture_academy.html" id="nav-best-picture-academy">Best Picture (Oscars)</a></li>
-            <li><a href="best_original_screenplay.html" id="nav-best-original-screenplay">Original Screenplay (Oscars)</a></li>
-            <li><a href="best_adapted_screenplay.html" id="nav-best-adapted-screenplay">Adapted Screenplay (Oscars)</a></li>
-            <li><a href="best_director_academy.html" id="nav-best-director-academy">Best Director (Oscars)</a></li>
-            <li><a href="greatest_directors.html" id="nav-greatest-directors">Greatest Directors</a></li>
-            <li><a href="hollywood_directors.html" id="nav-hollywood-directors">Hollywood Directors</a></li>
-            <li><a href="greatest_actors.html" id="nav-greatest-actors">Greatest Actors</a></li>
+            <li><a href="english_movies.html">English Movies</a></li>
+            <li><a href="top250_movies.html">IMDb Top 250 Movies</a></li>
+            <li><a href="greatest_movies.html">Greatest Movies</a></li>
+            <li><a href="inspirational_movies.html">Inspirational Movies</a></li>
+            <li><a href="top250_tvshows.html">IMDb Top 250 TV Shows</a></li>
+            <li><a href="best_picture_academy.html">Best Picture (Oscars)</a></li>
+            <li><a href="best_original_screenplay.html">Original Screenplay (Oscars)</a></li>
+            <li><a href="best_adapted_screenplay.html" class="active">Adapted Screenplay (Oscars)</a></li>
+            <li><a href="best_director_academy.html">Best Director (Oscars)</a></li>
+            <li><a href="greatest_directors.html">Greatest Directors</a></li>
+            <li><a href="hollywood_directors.html">Hollywood Directors</a></li>
+            <li><a href="greatest_actors.html">Greatest Actors</a></li>
         </ul>
     </nav>
     <div class="container">
-        <h1>IMDb Top 250 TV Shows Randomizer</h1>
+        <h1>Academy Award for Best Adapted Screenplay Winners Randomizer</h1>
+        <p>Explore the films recognized for their outstanding adapted screenplays.</p>
         <div class="controls">
-            <label for="numItems">Number of random TV shows:</label>
-            <input type="number" id="numItems" value="5" min="1">
-            <button id="generateBtn">Generate Random TV Shows</button>
+            <label for="numItems">Number of random winners:</label>
+            <input type="number" id="numItems" value="3" min="1">
+            <button id="generateBtn">Generate Random Winners</button>
         </div>
         <ul id="itemList">
-            <!-- Random TV shows will be displayed here -->
+            <!-- Random winners will be displayed here -->
         </ul>
     </div>
 
@@ -46,7 +47,7 @@
             }
         });
 
-        const itemsData = allTop250TvShows;
+        const itemsData = academyAwardBestAdaptedScreenplayWinners;
         const numItemsInput = document.getElementById('numItems');
         const itemListElement = document.getElementById('itemList');
 
@@ -72,7 +73,7 @@
         function displayItems(items) {
             itemListElement.innerHTML = '';
             if (items.length === 0) {
-                itemListElement.innerHTML = '<li class="item-item"><div class="details">No TV shows to display.</div></li>';
+                itemListElement.innerHTML = '<li class="item-item"><div class="details">No Adapted Screenplay winners to display.</div></li>';
                 return;
             }
             items.forEach((item, index) => {
@@ -81,8 +82,9 @@
                 listItem.innerHTML = `
                     <div class="rank">${index + 1}.</div>
                     <div class="details">
-                        <h3>${item.title} (${item.years})</h3>
-                        <p>Rating: ${item.rating} (${item.votes} votes)</p>
+                        <h3>${item.title} (${item.year})</h3>
+                        <p>Writers: ${item.writers.join(', ')}</p>
+                        <p>Source: ${item.source_material}</p>
                     </div>
                 `;
                 itemListElement.appendChild(listItem);
